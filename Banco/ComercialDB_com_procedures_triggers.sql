@@ -424,6 +424,17 @@ END$$
 
 DELIMITER ;
 
+create table pagamentos
+(
+id int not null primary key auto_increment,
+id_caixa int not null,
+id_pedido int not null,
+tipo_pagamento varchar(30) not null,
+valor double not null,
+data timestamp not null,
+constraint fk_pagamentos_caixas foreign key(id_caixa) references caixas(id),
+constraint fk_pagamentos_pedidos foreign key(id_pedido) references pedidos(id)
+);
 
 
 -- -----------------------------------------------------
